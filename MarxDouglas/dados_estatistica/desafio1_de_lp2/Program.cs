@@ -64,7 +64,7 @@ namespace desafio1_de_lp2
 
             //Encontrando a quantidade de notas abaixo da média e a porcentagem de notas abaixo da média
 
-            
+            i = 0;
             if (i < Quantidade_de_notas)
             {                
                 Notas_abaixo_da_media = 0;
@@ -79,11 +79,11 @@ namespace desafio1_de_lp2
             }
 
             //Encontrando a quantidade de notas acima da média e a porcentagem de notas acima da média
-           
+            i = 0;
             if (i < Quantidade_de_notas)
             {
                 Notas_acima_da_media = 0;
-                while (media < Notas[i])
+                while (media > Notas[i])
                 {
                     Notas_acima_da_media += 1;
                     i++;
