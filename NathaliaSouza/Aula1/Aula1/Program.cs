@@ -14,7 +14,7 @@ namespace Aula1
             double media;
             double min;
             double max;
-            int aumenta = 1;
+            int aumenta = 0;
 
             Console.WriteLine("Quantos números deseja inserir?");
             int qtd = int.Parse(Console.ReadLine());
@@ -31,7 +31,7 @@ namespace Aula1
                 }
                 else
                 {
-                    soma += numeros[aumenta - 1];
+                    soma += numeros[aumenta];
                     aumenta++;                   
                    
                 }
