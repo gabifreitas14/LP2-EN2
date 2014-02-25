@@ -16,6 +16,8 @@ namespace exercicio_01
             Console.WriteLine("Digite a quantidade de notas coletadas na pesquisa do IBGE: ");
             int n = int.Parse(Console.ReadLine());
 
+            Console.WriteLine();
+
             double[] numbers = new double[n];
 
             for (int i = 0; i < n; i++)
@@ -25,31 +27,42 @@ namespace exercicio_01
                 soma += numbers[i];
             }
 
+            Console.WriteLine();
+
             // Média da avaliação do governo federal
             media = soma / n;
-            Console.WriteLine("A média de avaliação do Governo Federal é de " + media);
-        
+            Console.WriteLine("A média de avaliação do Governo Federal é de {0:0.00}", media);
+
+            Console.WriteLine();
+
             // Quantidade de notas abaixo e acima da média
-            int nota = 0;
-            int nota2 =0;
+            int qnt = 0;
+            int qnt2 = 0;
             foreach (double number in numbers)
             {
                 if (number < media)
                 {
-                    nota++;
+                    qnt++;
                 }
                 else
                 {
-                    nota2++;
+                    qnt2++;
                 }
             }
-            Console.WriteLine("Houveram {0} notas abaixo da média", nota);
-            Console.WriteLine("Houveram {0} notas acima da média", nota2);
+            Console.WriteLine("Houveram {0} notas abaixo da média", qnt);
+            Console.WriteLine("Houveram {0} notas acima da média", qnt2);
 
-            // Maior e menor notas
+            Console.WriteLine();
 
             // Porcentagem de pessoas acima e abaixo da média
-                           
+            double porc1;
+            double porc2;
+            
+                porc1 = ((double)qnt / n) * 100;
+                porc2 = ((double)qnt2 / n) * 100;
+            
+            Console.WriteLine("A porcentagem de pessoas abaixo da média é de {0:0.00}%", porc1);
+            Console.WriteLine("A porcentagem de pessoas acima da média é de {0:0.00}%", porc2);
             
 
         }
