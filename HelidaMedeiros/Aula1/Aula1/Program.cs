@@ -12,8 +12,8 @@ namespace Aula1
         {
             double soma = 0;
             double media;
-            double min;
-            double max;
+            double nmin = 10000000;
+            double nmax = 0;
             int aumenta = 0;
 
             Console.WriteLine("Quantos números deseja inserir?");
@@ -39,7 +39,30 @@ namespace Aula1
             }
             media = soma / qtd;
             Console.WriteLine("A media é: " + media);
+            
+
+            for (int i = 0; i < qtd; i++)
+            {
+                if (numeros[i] > nmax)
+                {
+                    nmax = numeros[i];
+
+                }
+                if (numeros[i] < nmin)
+                {
+                    nmin = numeros[i];
+
+                }
+                else if (nmax == nmin)
+                {
+                    Console.WriteLine("Existem números iguais.");
+                }
+            }
+            Console.WriteLine("O maior número é: " + nmax);
+            Console.WriteLine("O menor número é: " + nmin);
             Console.ReadKey();
+            
+
 
         }
     }
