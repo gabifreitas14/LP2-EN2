@@ -13,7 +13,7 @@ namespace Aula1
             double soma = 0;
             double media;
             double min;
-            double max;
+            double nmax = 0;
             int aumenta = 0;
 
             Console.WriteLine("Quantos números deseja inserir?");
@@ -39,8 +39,18 @@ namespace Aula1
             }
             media = soma / qtd;
             Console.WriteLine("A media é: " + media);
-            Console.ReadKey();
+            
 
+            for (int i = 0; i < nmax; i++)
+            {
+                if (i > aumenta) 
+                {
+                    Console.WriteLine("Maximo número: " + numeros[aumenta]);
+                }
+            }
+                 Console.ReadKey();
         }
+       
+     
     }
 }
