@@ -16,31 +16,19 @@ namespace ConsoleApplication1
             double[] numbers = new double[x];
 
             // Colocar os números no array.
+            double soma = 0;
+            double media = 0;
+
             for (int i = 0; i < x; i++)
             {
-                Console.WriteLine("Informe o {0}º número", i + 1);
+                Console.WriteLine("Informe o número:");
                 numbers[i] = double.Parse(Console.ReadLine());
+                soma += numbers[i];                                 
             }
+            
+            media = (soma / x);
+            Console.WriteLine("A média final é {0}", media);
 
-            double mediafinal = 0;
-            double media = 0;
-                       
-
-            //for (int j = 0; j < x; j++)
-            //{
-            //    numbers[j] = media;
-            //    mediafinal += media;
-            //}
-
-            int y = -1;
-            while(y < x)
-            {
-            numbers[y] = media;
-            mediafinal += media;
-            y++;       
-            }
-            Console.WriteLine("A média final é {0}", (mediafinal / x));
-
-        }             
+        }
     }
 }
