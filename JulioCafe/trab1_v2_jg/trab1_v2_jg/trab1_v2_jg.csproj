@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0E5D96A9-E4F0-461F-A9AE-E404CA9A3E91}</ProjectGuid>
+    <ProjectGuid>{86D5C696-A312-4AA0-873D-A6F30EE36AD1}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Aula1_julinho_e_o_frota</RootNamespace>
-    <AssemblyName>Aula1_julinho_e_o_frota</AssemblyName>
+    <RootNamespace>trab1_v2_jg</RootNamespace>
+    <AssemblyName>trab1_v2_jg</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
