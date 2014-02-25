@@ -111,6 +111,15 @@ namespace aula1
 
         public string rmediana()
         {
+            double s;
+            for (int i = 0; i < x - 1; i++)
+                for (int j = i + 1; j < x; j++)
+                    if (n[i] < n[j])
+                    {
+                        s = n[i];
+                        n[i] = n[j];
+                        n[j] = s;
+                    }
             
             if (x % 2 == 0)
             {
