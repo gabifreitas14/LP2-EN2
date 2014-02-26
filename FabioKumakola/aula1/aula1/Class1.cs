@@ -133,6 +133,4 @@ namespace aula1
             return "A mediana dos números é: " + mediana;
         }
     }
-
-
 }
