@@ -92,19 +92,15 @@ namespace aula1
 
         public string rdp()
         {
-            double[] d = new double[x];
-            
             for (int i = 0; i < x; i++)
-                d[i] = n[i] - media;
-
-            for (int i = 0; i < x; i++)
-                d[i] = d[i] * d[i];
-
-            for (int i = 0; i < x; i++)
-                dp = dp + d[i];
+            {
+                if (n[i] < 0)
+                    dp += media - n[i];
+                else
+                    dp += n[i] - media;
+            }
 
             dp = dp / x;
-            dp = Math.Round(Math.Sqrt(dp) * 100) / 100;
 
             return "O desvio padrão é de: " + dp;
         }
