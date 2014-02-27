@@ -33,7 +33,7 @@ namespace Aula1
           
                int y = 1;
 
-                do
+               while (y < num+1 )
                 {
                    Console.WriteLine("Digite os números" + h++);
 
@@ -51,20 +51,21 @@ namespace Aula1
 
                 } 
                 
-                while (y < num+1);
+               
 
                
 
             
 
-            minimo = array[0];
+            minimo = array[1];
 
-            maximo = array[0];
+            maximo = array[1];
 
             media = a / num;
 
             for (int i = 1; i < num+1; i++)
             {
+               
                 if (maximo < array[i])
                 {
                     maximo = array[i];
@@ -81,7 +82,7 @@ namespace Aula1
                 {
                     acimadamedia++;
                 }
-                else
+                if(media == array[i])
                 {
                     namedia++;
                 }
