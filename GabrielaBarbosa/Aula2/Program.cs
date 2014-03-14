@@ -12,9 +12,9 @@ namespace Aula2
         {
             double soma = 0;
 
-            double media = 0;
-
-            int qtdaluno=int.Parse(Console.ReadLine());
+            int qtdaluno=int.Parse(Console.ReadLine()); 
+            
+            double [] media = new double[qtdaluno];
 
             int qtdavaliacao=int.Parse(Console.ReadLine());
 
@@ -26,26 +26,29 @@ namespace Aula2
             {
                 nomealuno[i] = Console.ReadLine();
 
-                for (int a = 0; a <= qtdavaliacao; a++)
+                for (int a = 0; a < qtdavaliacao; a++)
                 {
                     alunonotas[i, a] = int.Parse(Console.ReadLine());
 
-                   
-                }
-
-                for (int k = 0; k <= qtdaluno; k++)
-                {
-                    Console.WriteLine(nomealuno[k]);
-
-                    for (int j = 0; j < qt; j++)
-                    {
-                        
-                    }
+                    soma+=alunonotas[i,a];
 
                 }
+
+                
+
+                media[i]=soma/qtdavaliacao;
+                
+                soma=0; 
                 
             }
 
+            for (int k = 0; k < qtdaluno; k++)
+                {
+                    Console.WriteLine(nomealuno[k]+": "+media[k]);
+
+                    
+
+                }
         }
     }
 }
