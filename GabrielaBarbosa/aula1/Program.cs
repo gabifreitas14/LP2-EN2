@@ -132,7 +132,7 @@ namespace Aula1
 
             if (a >= 4.87 && porcent2 > 60)
             {
-                Console.WriteLine("O governante vai ser reeleito");
+                Console.WriteLine("O governante vai ser reeleito ");
 
             }
 
