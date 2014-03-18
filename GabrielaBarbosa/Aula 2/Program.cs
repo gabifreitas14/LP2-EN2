@@ -85,11 +85,7 @@ namespace Aula_2
   
              }
 
-             else
-             {
-                 Console.WriteLine("Voce digitou algo errado");
-             }
-
+            
              
 
             
