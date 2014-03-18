@@ -12,6 +12,10 @@ namespace Aula2
         {
             double soma = 0;
 
+            string materia = Console.ReadLine();
+
+            string professor = Console.ReadLine();
+
             int qtdaluno=int.Parse(Console.ReadLine()); 
             
             double [] media = new double[qtdaluno];
@@ -42,9 +46,19 @@ namespace Aula2
                 
             }
 
+            Console.WriteLine("Consolidação de Médias \r\nMatéria: {0} \r\nProfessor: {1}",materia,professor);
+
+
+
             for (int k = 0; k < qtdaluno; k++)
                 {
-                    Console.WriteLine(nomealuno[k]+": "+media[k]);
+
+                    if (media[k]>=6)
+                    {
+                        Console.WriteLine(string.Format("{0}: {{1:F1}}",nomealuno[k],media[k]));
+                    }
+
+                    
 
                     
 
