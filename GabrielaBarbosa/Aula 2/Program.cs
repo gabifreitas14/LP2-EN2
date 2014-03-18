@@ -12,8 +12,6 @@ namespace Aula_2
         {
              double soma = 0;
 
-            
-
              string materia = Console.ReadLine();
 
              string professor = Console.ReadLine();
