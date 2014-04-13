@@ -10,37 +10,24 @@ namespace Aula1
     {
         static void Main(string[] args)
         {
-          
-            double a = 0;
-            double porcent;
-            double media;
-            double porcent2;
-            double maximo = 0;
-            double minimo = 0;
-            double soma = 0;
-            double variancia = 0;
-            int h = 0;
-            int acimadamedia = 0;
-            int namedia = 0;
-            int abaixodamedia = 0;
 
+            IBGE pessoa = new IBGE();
+
+            double a = 0;
             
+            int y = 1;
 
             Console.WriteLine("Digite aqui a quantidade de números.");
 
-
             int num = int.Parse(Console.ReadLine());
-            double[] desvio = new double[num+1];
+
             double[] array = new double[num+1];
-            double[] quadrado = new double[num+1];
 
-
-          
-               int y = 1;
+            
 
                while (y < num+1 )
                 {
-                   Console.WriteLine("Digite os números" + h++);
+                   Console.WriteLine("Digite os números" );
 
                 array[y] = double.Parse(Console.ReadLine());
 
@@ -56,90 +43,27 @@ namespace Aula1
 
                 } 
                 
-               
-
-               
-
             
+            Console.WriteLine("A media é {0:F2}",pessoa.media(a,num));
 
-            minimo = array[1];
+            Console.WriteLine("O maximo é " + pessoa.maximo(array,num));
 
-            maximo = array[1];
+            Console.WriteLine("O minimo é " + pessoa.minimo(array,num));
 
-            media = a / num;
+            Console.WriteLine("Tem " + pessoa.abaixodamedia(array,num) + " votaram abaixo da média");
 
-          
+            Console.WriteLine("Tem " + pessoa.acimadamedia(array,num) + " votaram acima da média");
 
+            Console.WriteLine("Tem " + pessoa.namedia(array,num) + " pessoas na média");
 
+            Console.WriteLine("{0:F1} % das pessoas votaram abaixo da média",pessoa.porcentabaixo(num));
 
-            for (int i = 1; i < num+1; i++)
-            {
-               
-                if (maximo < array[i])
-                {
-                    maximo = array[i];
-                }
-                if (minimo > array[i])
-                {
-                    minimo = array[i];
-                }
-                if (media > array[i])
-                {
-                    abaixodamedia++;
-                }
-                if (media < array[i])
-                {
-                    acimadamedia++;
-                }
-                if(media == array[i])
-                {
-                    namedia++;
-                }
+            Console.WriteLine("{0:F1} % das pessoas votaram acima da média",pessoa.porcentacima(num));
 
-                desvio[i] = (array[i] - media);
+            Console.WriteLine("O desvio padrão das notas: {0:F2} ",pessoa.desviop(array,num));
 
-                quadrado[i]= desvio[i] * desvio[i];
-                
-                soma = quadrado[i] + soma;
-
-                
-
-
-            }
-            variancia =  Math.Sqrt (soma / media);
-
-            porcent = (100 * abaixodamedia) / num;
-
-            porcent2 = (100 * acimadamedia) / num;
-
-            Console.WriteLine("A media é {0:F2}",media);
-
-            Console.WriteLine("O maximo é " + maximo);
-
-            Console.WriteLine("O minimo é " + minimo);
-
-            Console.WriteLine("Tem " + abaixodamedia + " votaram abaixo da média");
-
-            Console.WriteLine("Tem " + acimadamedia + " votaram acima da média");
-
-            Console.WriteLine("Tem " + namedia + " pessoas na média");
-
-            Console.WriteLine("{0:F1} % das pessoas votaram abaixo da média",porcent);
-
-            Console.WriteLine("{0:F1} % das pessoas votaram acima da média",porcent2);
-
-            Console.WriteLine("O desvio padrão das notas: {0:F2} ",variancia);
-
-            if (a >= 4.87 && porcent2 > 60)
-            {
-                Console.WriteLine("O governante vai ser reeleito ");
-
-            }
-
-            else
-            {
-                Console.WriteLine("O governante não será reeleito");
-            }
+            Console.WriteLine(pessoa.status(a));
+           
         }
     }
 }
