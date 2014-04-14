@@ -1,0 +1,8 @@
+Consolida‡Æo de M‚dias 
+Mat‚ria: Linguagens de Programação II  
+Professor: Francisco Vianna  
+
+Fulano Silva         : 8,7 Aprovado
+Beltrano Ferreira    : 5,9 Pendente COC
+Ciclano de Andrade   : 3,5 Reprovado
+Pestano Roberto      : 9,9 Aprovado
