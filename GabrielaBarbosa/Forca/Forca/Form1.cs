@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -12,11 +12,15 @@ namespace Forca
 {
     public partial class Form1 : Form
     {
+        
         public Form1()
         {
             InitializeComponent();
         }
-        string palavra = "cachorro";
+
+        int cont = 0;
+
+
         private void button2_Click(object sender, EventArgs e)
         {
 
@@ -24,16 +28,19 @@ namespace Forca
 
             Dica.Text = "";
 
+            
+
             int b = 0;
-            foreach (char partiu in palavra)
+            foreach (char contagem in msg)
             {
                 b++;
             }
-            string []dahora = new string [b];
+            string []mostrar = new string [b];
+            string[] dica = new string[b];
 
             string [] resposta =  new string[b];
             int c = 0;
-            foreach (char agora in palavra)
+            foreach (char agora in msg)
             {
                 resposta[c++] = agora.ToString();
             }
@@ -42,32 +49,50 @@ namespace Forca
 
             int i = 0;
 
-           
+            string d = "";
 
             for (int a = 0; a < resposta.Length; a++)
             {
+                
                 if ( palpite == resposta[a])
                 {
-                    dahora[a] = resposta[a];
-                    Dica.Text += dahora[a];
+                    dica[a] = resposta[a];
+
+                    d = dica[a];
+
+                    Dica.Text += dica[a];
                 }
 
                 else
                 {
-                    Dica.Text += "_ ";
-                    erro[a] = palpite;
-                    textBoxErro.Text = erro[a];
+                    if (dica[a] == d)
+                    {
+                        dica[a] = d;
+                    }
+                    else
+                    {
+                        dica[a] = " _";
+                        Dica.Text += dica[a];
+                        erro[a] = palpite;
+                        textBoxErro.Text += erro[a] + " ";
+                    }
                 }
             }
 
         }
-
+        public static string msg = "";
         private void NovoJogo_Click(object sender, EventArgs e)
         {
+            Form2 newForm2 = new Form2();
+
+            newForm2.ShowDialog();
+
+            string palavra = 
+
             Dica.Text = "";
 
             int b = 0;
-            foreach (char partiu in palavra)
+            foreach (char partiu in msg)
             {
                 b++;
             }
