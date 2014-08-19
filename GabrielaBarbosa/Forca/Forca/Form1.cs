@@ -18,13 +18,13 @@ namespace Forca
             InitializeComponent();
         }
 
-        int cont = 0;
+        ArrayList array = new ArrayList();
 
 
         private void button2_Click(object sender, EventArgs e)
         {
 
-            string[] erro = new string[7];
+            string erro = "";
 
             Dica.Text = "";
 
@@ -58,23 +58,26 @@ namespace Forca
                 {
                     dica[a] = resposta[a];
 
+                    array[a] = resposta[a];
+
                     d = dica[a];
 
-                    Dica.Text += dica[a];
+                    Dica.Text += array[a];
                 }
 
                 else
                 {
-                    if (dica[a] == d)
+                    if (dica[a]=="_ ")
                     {
-                        dica[a] = d;
+                        Dica.Text += array[a];
+
                     }
                     else
                     {
-                        dica[a] = " _";
-                        Dica.Text += dica[a];
-                        erro[a] = palpite;
-                        textBoxErro.Text += erro[a] + " ";
+                        
+                        Dica.Text += array[a];
+                        erro += palpite+" ";
+                        textBoxErro.Text = erro;
                     }
                 }
             }
@@ -91,14 +94,18 @@ namespace Forca
 
             Dica.Text = "";
 
+
             int b = 0;
             foreach (char partiu in msg)
             {
                 b++;
+                array.Add("_ ");
             }
 
             for (int i = 0; i < b; i++)
             {
+                
+                
                 Dica.Text += "_ ";
             }
         }
