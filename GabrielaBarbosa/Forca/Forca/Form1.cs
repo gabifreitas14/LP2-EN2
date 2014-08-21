@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -12,75 +13,99 @@ namespace Forca
 {
     public partial class Form1 : Form
     {
-        
+
         public Form1()
         {
             InitializeComponent();
         }
 
-        ArrayList array = new ArrayList();
+
+        List<string> mostrar = new List<string>();
+
+        int errosRestantes = 7;
+
 
 
         private void button2_Click(object sender, EventArgs e)
         {
 
-            string erro = "";
+
+            textBoxPalpite.Focus();
 
             Dica.Text = "";
 
-            
-
-            int b = 0;
-            foreach (char contagem in msg)
-            {
-                b++;
-            }
-            string []mostrar = new string [b];
-            string[] dica = new string[b];
-
-            string [] resposta =  new string[b];
             int c = 0;
+
+            string palpite = textBoxPalpite.Text;
+
+            int contagem = msg.Length;
+
+
+
+            string[] resposta = new string[contagem];
+
+            char[] certas = new char[contagem];
+
             foreach (char agora in msg)
             {
-                resposta[c++] = agora.ToString();
+                resposta[c] = agora.ToString();
+                c++;
             }
 
-            string palpite = textBoxPalpite.Text ;
+            int contadoracertos = resposta.Length;
 
-            int i = 0;
-
-            string d = "";
+            int paraacertar = resposta.Length;
 
             for (int a = 0; a < resposta.Length; a++)
             {
-                
-                if ( palpite == resposta[a])
+
+                if (palpite == resposta[a])
                 {
-                    dica[a] = resposta[a];
 
-                    array[a] = resposta[a];
 
-                    d = dica[a];
+                    mostrar[a] = resposta[a];
 
-                    Dica.Text += array[a];
+
+                    Dica.Text += mostrar[a];
+
+                    contadoracertos--;
                 }
 
                 else
                 {
-                    if (dica[a]=="_ ")
-                    {
-                        Dica.Text += array[a];
 
+                    if (mostrar[a].ToString() == "_ ")
+                    {
+                        Dica.Text += mostrar[a];
                     }
                     else
                     {
-                        
-                        Dica.Text += array[a];
-                        erro += palpite+" ";
-                        textBoxErro.Text = erro;
+                        Dica.Text += mostrar[a].ToString();
                     }
                 }
             }
+
+            if (Dica.Text == msg)
+            {
+                parabens parabens = new parabens();
+                parabens.Show();
+
+            }
+
+            if (errosRestantes == 1)
+            {
+                poxa poxa = new poxa();
+                poxa.Show();
+            }
+
+            if (paraacertar == contadoracertos)
+            {
+                textBoxErro.Text += palpite + " ";
+                errosRestantes--;
+                ntentativas.Text = errosRestantes.ToString();
+            }
+
+            textBoxPalpite.Clear();
 
         }
         public static string msg = "";
@@ -88,26 +113,34 @@ namespace Forca
         {
             Form2 newForm2 = new Form2();
 
-            newForm2.ShowDialog();
+            errosRestantes = 7;
 
-            string palavra = 
+            ntentativas.Text = errosRestantes.ToString();
+
+            textBoxErro.Clear();
+
+            newForm2.ShowDialog();
 
             Dica.Text = "";
 
-
+            mostrar.Clear();
             int b = 0;
             foreach (char partiu in msg)
             {
                 b++;
-                array.Add("_ ");
+
+                mostrar.Add("_ ");
             }
 
             for (int i = 0; i < b; i++)
             {
-                
-                
                 Dica.Text += "_ ";
             }
+        }
+
+        private void textBoxErro_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
